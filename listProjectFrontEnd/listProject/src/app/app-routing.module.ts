@@ -4,12 +4,17 @@ import { RouterModule, Routes } from '@angular/router'
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ListCreateComponent } from './components/list-create/list-create.component';
+import { ListEditComponent } from './components/list-edit/list-edit.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch:'full'},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
-  {path: 'home' , component:HomeComponent}
+  {path: 'home' , component:HomeComponent},
+  {path: 'list-create' , component:ListCreateComponent},
+  {path: 'list-edit' , component:ListEditComponent},
+
 ];
 
 @NgModule({

@@ -9,6 +9,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthHeaderInterceptor } from './service/auth-header.interceptor';
 import { HomeComponent } from './components/home/home.component';
+import { ListEditComponent } from './components/list-edit/list-edit.component';
+import { ListCreateComponent } from './components/list-create/list-create.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { HomeComponent } from './components/home/home.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
+    ListEditComponent,
+    ListCreateComponent,
   
   ],
   imports: [
