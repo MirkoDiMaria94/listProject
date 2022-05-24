@@ -54,16 +54,16 @@ export class ApiService {
     updateStudent(id, data:Character): Observable<any> {
       let url = `${this.API_URL}/update/${id}`;
       return this.http.put(url, data, { headers: this.headers }).pipe(
-        catchError(this.errorMgmt)
+      catchError(this.errorMgmt)
       )
     }
 
       // Eliminare gli studenti
     deleteStudent(id): Observable<any> {
-    let url = `${this.API_URL}/delete/${id}`;
-    return this.http.delete(url, { headers: this.headers }).pipe(
+      let url = `${this.API_URL}/delete/${id}`;
+      return this.http.delete(url, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
-    )
+      )
   }
 
   
