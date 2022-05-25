@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'register', component:RegisterComponent},
   {path: 'home' , component:HomeComponent},
   {path: 'list-create' , component:ListCreateComponent},
-  {path: 'list-edit' , component:ListEditComponent},
+  {path: 'list-edit/:id' , component:ListEditComponent},
 
 ];
 

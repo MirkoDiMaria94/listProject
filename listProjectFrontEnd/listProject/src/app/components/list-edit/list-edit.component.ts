@@ -24,7 +24,7 @@ export class ListEditComponent implements OnInit {
    }
 
   ngOnInit() {
-   this.updateCharacater();
+   this.updateCharacter();
    let id = this.actRoute.snapshot.paramMap.get('id');
    this.getCharacter(id);
    this.editForm = this.fb.group({
@@ -52,11 +52,11 @@ export class ListEditComponent implements OnInit {
     }
 
 
-    updateCharacater(){
+    updateCharacter(){
       this.editForm = this.fb.group({
        // 'id':['', [Validators.required]],
-        'name':['', [Validators.required]],
-        'description': ['', [Validators.required]]
+        name:['', [Validators.required]],
+        description: ['', [Validators.required]]
       })
 
     }
@@ -69,9 +69,9 @@ export class ListEditComponent implements OnInit {
       } else {
         if (window.confirm('Sei siucuro di aggiornare il Personaggio ?')) {
           let id = this.actRoute.snapshot.paramMap.get('id');
-          this.apiService.updateStudent(id, this.editForm.value)
+          this.apiService.updateCharacter(id, this.editForm.value)
             .subscribe(res => {
-              this.router.navigateByUrl('/students-list');
+              this.router.navigateByUrl('/home');
               console.log('Contenuto aggiornato correttamente!')
             }, (error) => {
               console.log(error)

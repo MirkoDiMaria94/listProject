@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChampionsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,5 +22,11 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']); 
-       
+    Route::get('/champions' ,[ChampionsController::class, 'index']);
+    Route::post('/create', [ChampionsController::class, 'store']);
+    Route::put('/update/{id}', [ChampionsController::class, 'update']);
+    Route::get('/read/{id}',[ChampionsController::class, 'show']);
+    Route::delete('/delete/{id}',[ChampionsController::class, 'destroy']);
+
+        
 });

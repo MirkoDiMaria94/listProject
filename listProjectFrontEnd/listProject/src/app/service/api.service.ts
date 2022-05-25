@@ -25,16 +25,20 @@ export class ApiService {
 
   createCharacter(data:Character): Observable<any> {
       let url= `${this.API_URL}/create`
-      return this.http.post(url,data)
+      console.log(data)
+      return this.http.post<Character>(url,data)
+      
+     
       .pipe(
       catchError(this.errorMgmt)
       )
+      
   }
 
 
     // Prelevare tutti i personaggi
     getCharacters() {
-      return this.http.get(`${this.API_URL}`);
+      return this.http.get(`${this.API_URL}/champions`);
     }
 
 
@@ -50,16 +54,16 @@ export class ApiService {
     )
   }
 
-    // Aggiornare gli studenti
-    updateStudent(id, data:Character): Observable<any> {
+    // Aggiornare i personaggi
+    updateCharacter(id, data:Character): Observable<any> {
       let url = `${this.API_URL}/update/${id}`;
       return this.http.put(url, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
       )
     }
 
-      // Eliminare gli studenti
-    deleteStudent(id): Observable<any> {
+      // Eliminare i personaggi
+    deleteCharacter(id): Observable<any> {
       let url = `${this.API_URL}/delete/${id}`;
       return this.http.delete(url, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)

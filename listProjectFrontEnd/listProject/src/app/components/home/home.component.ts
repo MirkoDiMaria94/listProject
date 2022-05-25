@@ -8,19 +8,7 @@ import { Character } from 'src/models/Character';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  Character:any= [{
-    "id":1,
-    "name":"Michele",
-    "description":"prova",
- },
- {
-    "id":2,
-    "name":"Stefano",
-    "description":"prova2",
-    }
-
-
-]
+  Character:any= [];
   selectedRow: any;
   selectedAll:boolean =false;
 
@@ -28,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(public apiService:ApiService) {
     this.selectedRow = [];
+    this.readCharacter();
    }
 
    selectAll(index) {
@@ -53,7 +42,7 @@ export class HomeComponent implements OnInit {
 
   removeCharacter(character, index) {
     if(window.confirm('Sei sicuro di eliminare lo studente ?')) {
-        this.apiService.deleteStudent(character.id).subscribe((data) => {
+        this.apiService.deleteCharacter(character.id).subscribe((data) => {
           this.Character.splice(index, 1);
         }
       )    

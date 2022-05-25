@@ -40,14 +40,13 @@ export class ListCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('test')
+    
     this.submitted = true;
     if (!this.listForm.valid) {
       console.log('form non valido');
       return false;
     } else {
-      this.apiService.createCharacter(this.listForm.value).subscribe(
-        (res) => {
+      this.apiService.createCharacter(this.listForm.value).subscribe ((res) => {
           console.log('Personaggio creato con successo')
           this.ngZone.run(() => this.router.navigateByUrl('/home'))
         }, (error) => {
